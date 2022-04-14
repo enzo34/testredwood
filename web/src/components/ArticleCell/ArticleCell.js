@@ -20,5 +20,5 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ article }) => {
-  return <Article article={article} />
+  return (<Article article={article} />)
 }

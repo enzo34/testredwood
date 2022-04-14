@@ -13,19 +13,20 @@ model Post {
   title String
   body String
   createdAt DateTime @default(now())
+  comments Comment[]
 }
 
 // Define your own datamodels here and run `yarn redwood prisma migrate dev`
 // to create migrations for them and apply to your dev DB.
 // TODO: Please remove the following example:
 model User {
-  id                  Int @id @default(autoincrement())
-  name                String?
-  email               String @unique
-  hashedPassword      String
-  salt                String
-  resetToken          String?
-  resetTokenExpiresAt DateTime?
+  id    Int    @id @default(autoincrement())
+  email String @unique
+  name  String?  
+  hashedPassword String
+  salt String
+  resetToken String?
+  resetTokenExpiry DateTime?
 }
 
 model Contact {
@@ -33,5 +34,14 @@ model Contact {
   name String
   email String
   message String
+  createdAt DateTime @default(now())
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  name      String
+  body      String
+  post      Post     @relation(fields: [postId], references: [id])
+  postId    Int
   createdAt DateTime @default(now())
 }
