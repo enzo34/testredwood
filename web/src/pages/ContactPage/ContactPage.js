@@ -41,10 +41,12 @@ const ContactPage = () => {
 
       <Toaster />
       <Form
+      className='w-full'
         onSubmit={onSubmit}
         config={{ mode: 'onBlur' }}
         error={error}
         formMethods={formMethods}
+        
       >
         <FormError
           error={error}
@@ -62,7 +64,7 @@ const ContactPage = () => {
         <TextField
           name="name"
           validation={{ required: true }}
-          className="border rounded-sm px-2 py-1 outline-none"
+          className="block w-full p-1 border rounded text-xs "
           errorClassName="border rounded-sm px-2 py-1 border-red-700 outline-none"
         />
         <FieldError name="name" className="block text-red-700" />
@@ -83,7 +85,7 @@ const ContactPage = () => {
               message: 'Please enter a valid email address',
             },
           }}
-          className="border rounded-sm px-2 py-1"
+          className="block w-full p-1 border rounded text-xs "
           errorClassName="border rounded-sm px-2 py-1 border-red-700 outline-none"
         />
         <FieldError name="email" className="block text-red-700" />
@@ -98,7 +100,7 @@ const ContactPage = () => {
         <TextAreaField
           name="message"
           validation={{ required: true }}
-          className="block border rounded-sm px-2 py-1"
+          className="block w-full p-1 border rounded text-xs "
           errorClassName="block border rounded-sm px-2 py-1 border-red-700 outline-none"
         />
         <FieldError name="message" className="block text-red-700" />
