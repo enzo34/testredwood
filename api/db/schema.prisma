@@ -27,6 +27,7 @@ model User {
   salt String
   resetToken String?
   resetTokenExpiry DateTime?
+  roles String @default("moderator")
 }
 
 model Contact {
